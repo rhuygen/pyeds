@@ -13,7 +13,7 @@ def read(file_name):
 
 README = read('README.rst')
 NEWS = read('NEWS.txt')
-
+LICENSE = read('LICENSE')
 
 version = '17.12.0'
 
@@ -36,12 +36,18 @@ setup(name='pyeds',
     author='Nenad Radulovic',
     author_email='nenad.b.radulovic@gmail.com',
     url='https://github.com/nradulovic',
-    license='LGPL',
+    license=LICENSE,
     packages=find_packages('src'),
     package_dir={'': 'src'}, include_package_data=True,
     zip_safe=False,
     install_requires=[
         # Currently no dependencies
+    ],
+    setup_requires=[
+        "pytest-runner"
+    ],
+    tests_require=[
+        "pytest"
     ],
     entry_points={
         'console_scripts':

@@ -46,7 +46,7 @@ import re
 import logging
 
 from . import coordinator
-from . import lib
+from .lib import immutable
 
 
 EVENT_HANDLER_PREFIX = 'on_'
@@ -746,7 +746,7 @@ class DeclareState(object):
         return state_cls
 
 
-class Event(lib.Immutable, Resource):
+class Event(immutable.Immutable, Resource):
     '''Event
 
     An event is the only means of communication between state machines. Each
